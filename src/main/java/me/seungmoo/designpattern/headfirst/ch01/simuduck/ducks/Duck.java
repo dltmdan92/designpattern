@@ -4,8 +4,8 @@ import me.seungmoo.designpattern.headfirst.ch01.simuduck.actions.fly.FlyBehavior
 import me.seungmoo.designpattern.headfirst.ch01.simuduck.actions.quack.QuackBehavior;
 
 public abstract class Duck {
-    private final FlyBehavior flyBehavior;
-    private final QuackBehavior quackBehavior;
+    private FlyBehavior flyBehavior;
+    private QuackBehavior quackBehavior;
     private final String name;
 
     public Duck(FlyBehavior flyBehavior, QuackBehavior quackBehavior, String name) {
@@ -25,5 +25,13 @@ public abstract class Duck {
     }
     public void performQuack() {
         quackBehavior.quack();
+    }
+
+    public void setFlyBehavior(FlyBehavior fb) {
+        this.flyBehavior = fb;
+    }
+
+    public void setQuackBehavior(QuackBehavior qb) {
+        this.quackBehavior = qb;
     }
 }
