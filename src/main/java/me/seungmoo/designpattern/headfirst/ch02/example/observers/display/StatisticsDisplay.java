@@ -21,15 +21,22 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 
     @Override
     public void update(float temperature, float humidity, float pressure) {
-        temperatures.add(temperature);
         setTemps(temperature);
         display();
     }
 
     private void setTemps(float temperature) {
+        addTemp(temperature);
         setMinTemp(temperature);
         setMaxTemp(temperature);
         setAvgTemp();
+    }
+
+    private void addTemp(float temperature) {
+        temperatures.add(temperature);
+        if (temperatures.size() > 10) {
+            temperatures.poll();
+        }
     }
 
     private void setMinTemp(float temperature) {

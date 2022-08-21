@@ -39,4 +39,8 @@ public class WeatherData implements Subject {
     }
 
     // 기타 WeathreData 메소드
+
+    public float getPressure() {
+        return pressure;
+    }
 }
