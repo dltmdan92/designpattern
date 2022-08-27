@@ -1,11 +1,13 @@
 package me.seungmoo.designpattern.headfirst.ch02.example.subjects.weather;
 
+import lombok.Getter;
 import me.seungmoo.designpattern.headfirst.ch02.example.observers.Observer;
 import me.seungmoo.designpattern.headfirst.ch02.example.subjects.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class WeatherData implements Subject {
     private final List<Observer> observers = new ArrayList<>();
     private float temperature;
@@ -24,7 +26,7 @@ public class WeatherData implements Subject {
 
     @Override
     public void notifyObservers() {
-        observers.forEach(observer -> observer.update(temperature, humidity, pressure));
+        observers.forEach(Observer::update);
     }
 
     private void measurementsChanged() {
@@ -38,9 +40,4 @@ public class WeatherData implements Subject {
         measurementsChanged();
     }
 
-    // 기타 WeathreData 메소드
-
-    public float getPressure() {
-        return pressure;
-    }
 }

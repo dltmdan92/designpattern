@@ -12,7 +12,7 @@ public class StatisticsDisplay implements Observer, DisplayElement {
     private Optional<Float> minTemp = Optional.empty();
     private Optional<Float> maxTemp = Optional.empty();
     private float avgTemp;
-    private WeatherData weatherData;
+    private final WeatherData weatherData;
 
     public StatisticsDisplay(WeatherData weatherData) {
         this.weatherData = weatherData;
@@ -20,8 +20,8 @@ public class StatisticsDisplay implements Observer, DisplayElement {
     }
 
     @Override
-    public void update(float temperature, float humidity, float pressure) {
-        setTemps(temperature);
+    public void update() {
+        setTemps(weatherData.getTemperature());
         display();
     }
 
