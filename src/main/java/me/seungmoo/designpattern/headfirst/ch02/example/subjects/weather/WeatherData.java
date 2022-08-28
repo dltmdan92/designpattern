@@ -1,13 +1,11 @@
 package me.seungmoo.designpattern.headfirst.ch02.example.subjects.weather;
 
-import lombok.Getter;
 import me.seungmoo.designpattern.headfirst.ch02.example.observers.Observer;
 import me.seungmoo.designpattern.headfirst.ch02.example.subjects.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class WeatherData implements Subject {
     private final List<Observer> observers = new ArrayList<>();
     private float temperature;
@@ -40,4 +38,15 @@ public class WeatherData implements Subject {
         measurementsChanged();
     }
 
+    public float getTemperature() {
+        return temperature;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public float getPressure() {
+        return pressure;
+    }
 }
