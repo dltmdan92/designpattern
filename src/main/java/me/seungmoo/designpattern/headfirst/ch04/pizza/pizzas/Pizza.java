@@ -1,4 +1,4 @@
-package me.seungmoo.designpattern.headfirst.ch04.pizza;
+package me.seungmoo.designpattern.headfirst.ch04.pizza.pizzas;
 
 public interface Pizza {
     void prepare();

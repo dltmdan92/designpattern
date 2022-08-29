@@ -1,6 +1,6 @@
-package me.seungmoo.designpattern.headfirst.ch04.pizza;
+package me.seungmoo.designpattern.headfirst.ch04.pizza.pizzas;
 
-public class CheesePizza implements Pizza {
+public class ClamPizza implements Pizza {
     @Override
     public void prepare() {
 
