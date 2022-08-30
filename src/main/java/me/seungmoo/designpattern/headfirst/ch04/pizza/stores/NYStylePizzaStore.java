@@ -3,6 +3,9 @@ package me.seungmoo.designpattern.headfirst.ch04.pizza.stores;
 import me.seungmoo.designpattern.headfirst.ch04.pizza.factories.NYPizzaFactory;
 import me.seungmoo.designpattern.headfirst.ch04.pizza.pizzas.Pizza;
 
+/**
+ * 추상 클래스 PizzaStore를 상속받는 Factory class
+ */
 public class NYStylePizzaStore extends PizzaStore {
 
     private final NYPizzaFactory factory;
