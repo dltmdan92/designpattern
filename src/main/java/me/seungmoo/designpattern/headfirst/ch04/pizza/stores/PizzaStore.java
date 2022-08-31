@@ -11,6 +11,10 @@ import me.seungmoo.designpattern.headfirst.ch04.pizza.pizzas.*;
  * 고수준 구성 요소는 항상 추상화(Pizza 추상 클래스 or interface)에 의존해야 한다. (구상 클래스 X)
  *
  * 팩토리 메서드 패턴은 DIP 원칙을 적용하기에 좋은 패턴이다.
+ *
+ * PizzaStore - 추상 팩토리 클래스
+ * 이것을 상속받아서 구상 팩토리 클래스가 실질적인 일을 담당한다.
+ *
  */
 public abstract class PizzaStore {
     protected final PizzaIngredientFactory ingredientFactory;
@@ -31,6 +35,15 @@ public abstract class PizzaStore {
         return pizza;
     }
 
+    /**
+     * 추상 팩토리 메서드 (팩토리 메서드 패턴)
+     * - 이것을 구상 클래스에서 override해서 실질적인 객체 생성을 수행한다.
+     *
+     * 추상 팩토리 패턴에서 팩토리 메서드 형태로 객체 생성하는 것이 일반적이고 당연하다.
+     *
+     * @param type
+     * @return
+     */
     protected abstract Pizza createPizza(String type);
 
 }

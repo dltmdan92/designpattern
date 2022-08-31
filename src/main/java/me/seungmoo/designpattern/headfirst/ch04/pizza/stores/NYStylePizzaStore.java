@@ -12,6 +12,12 @@ public class NYStylePizzaStore extends PizzaStore {
         super(new NYPizzaIngredientFactory());
     }
 
+    /**
+     * 팩토리 메서드 (팩토리 메서드 패턴)
+     * 추상 팩토리 패턴에서 팩토리 메서드 형태로 객체 생성하는 것이 일반적이고 당연하다.
+     * @param type
+     * @return
+     */
     @Override
     public Pizza createPizza(String type) {
         Pizza pizza = null;
