@@ -12,8 +12,6 @@ import me.seungmoo.designpattern.headfirst.ch04.pizza.pizzas.*;
  *
  * 팩토리 메서드 패턴은 DIP 원칙을 적용하기에 좋은 패턴이다.
  *
- * PizzaStore - 추상 팩토리 클래스
- * 이것을 상속받아서 구상 팩토리 클래스가 실질적인 일을 담당한다.
  *
  */
 public abstract class PizzaStore {
