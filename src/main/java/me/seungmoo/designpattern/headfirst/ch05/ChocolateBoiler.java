@@ -4,7 +4,8 @@ public class ChocolateBoiler {
     private boolean empty;
     private boolean boiled;
 
-    private static ChocolateBoiler instance;
+    // 이렇게 하면 정적 초기화 부분(static initializer)에서 Singleton의 인스턴스를 생성, 이렇게 하면 스레드를 써도 별 문제가 없다.
+    private static ChocolateBoiler instance = new ChocolateBoiler();
 
     private ChocolateBoiler() {
         this.empty = true;
@@ -18,10 +19,7 @@ public class ChocolateBoiler {
         }
     }
 
-    public static synchronized ChocolateBoiler getInstance() {
-        if (ChocolateBoiler.instance == null) {
-            instance = new ChocolateBoiler();
-        }
+    public static ChocolateBoiler getInstance() {
         return instance;
     }
 
