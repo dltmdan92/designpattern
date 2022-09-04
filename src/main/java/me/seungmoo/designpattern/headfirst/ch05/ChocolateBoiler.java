@@ -4,9 +4,7 @@ public class ChocolateBoiler {
     private boolean empty;
     private boolean boiled;
 
-    // 이렇게 하면 정적 초기화 부분(static initializer)에서 Singleton의 인스턴스를 생성, 이렇게 하면 스레드를 써도 별 문제가 없다.
-    // JVM의 클래스로더에서 클래스를 로딩할 때 인스턴스를 생성한다.
-    private static ChocolateBoiler instance = new ChocolateBoiler();
+    private static volatile ChocolateBoiler instance;
 
     private ChocolateBoiler() {
         this.empty = true;
@@ -21,6 +19,16 @@ public class ChocolateBoiler {
     }
 
     public static ChocolateBoiler getInstance() {
+        // DCL (Double-Checked Locking)을 통해 인스턴스 미생성일때만 동기화한다.
+        // 처음에만 동기화, 그 이후에는 lock 걸리지 않는다.
+        // BUT CPU 코어의 캐시를 쓰지 못하고 메인메모리에 매번 접근해야 한다는 단점이 있음
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new ChocolateBoiler();
+                }
+            }
+        }
         return instance;
     }
 
