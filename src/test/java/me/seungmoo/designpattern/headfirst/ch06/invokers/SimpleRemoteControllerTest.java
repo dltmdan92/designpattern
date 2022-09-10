@@ -1,7 +1,7 @@
 package me.seungmoo.designpattern.headfirst.ch06.invokers;
 
-import me.seungmoo.designpattern.headfirst.ch06.commands.GarageDoorOpenCommand;
-import me.seungmoo.designpattern.headfirst.ch06.commands.LightOnCommand;
+import me.seungmoo.designpattern.headfirst.ch06.commands.garage.GarageDoorUpCommand;
+import me.seungmoo.designpattern.headfirst.ch06.commands.light.LightOnCommand;
 import me.seungmoo.designpattern.headfirst.ch06.receivers.GarageDoor;
 import me.seungmoo.designpattern.headfirst.ch06.receivers.Light;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +13,7 @@ class SimpleRemoteControllerTest {
     @DisplayName("light on test")
     void simpleTest() {
         SimpleRemoteController remoteController = new SimpleRemoteController();
-        Light light = new Light();
+        Light light = new Light("simple");
         LightOnCommand lightOnCommand = new LightOnCommand(light);
 
         remoteController.setCommand(lightOnCommand);
@@ -24,14 +24,14 @@ class SimpleRemoteControllerTest {
     @DisplayName("light on & garage door open test")
     void lightOnAndGarageDoorOpenTest() {
         SimpleRemoteController remoteController = new SimpleRemoteController();
-        Light light = new Light();
-        GarageDoor garageDoor = new GarageDoor();
+        Light light = new Light("simple");
+        GarageDoor garageDoor = new GarageDoor("simple");
         LightOnCommand lightOnCommand = new LightOnCommand(light);
-        GarageDoorOpenCommand garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
+        GarageDoorUpCommand garageDoorUpCommand = new GarageDoorUpCommand(garageDoor);
 
         remoteController.setCommand(lightOnCommand);
         remoteController.buttonWasPressed();
-        remoteController.setCommand(garageDoorOpenCommand);
+        remoteController.setCommand(garageDoorUpCommand);
         remoteController.buttonWasPressed();
     }
 

@@ -1,5 +1,6 @@
-package me.seungmoo.designpattern.headfirst.ch06.commands;
+package me.seungmoo.designpattern.headfirst.ch06.commands.light;
 
+import me.seungmoo.designpattern.headfirst.ch06.commands.Command;
 import me.seungmoo.designpattern.headfirst.ch06.receivers.Light;
 
 public class LightOnCommand implements Command {
