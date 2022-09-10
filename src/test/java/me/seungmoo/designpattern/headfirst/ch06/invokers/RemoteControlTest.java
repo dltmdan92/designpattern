@@ -12,7 +12,7 @@ import me.seungmoo.designpattern.headfirst.ch06.receivers.Stereo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class RemoteControlTest {
+class RemoteControlTest {
 
     @Test
     @DisplayName("remote controller test")
@@ -40,6 +40,33 @@ public class RemoteControlTest {
         remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
         remoteControl.setCommand(2, stereoOnWithCD, stereoOff);
         remoteControl.setCommand(3, garageDoorUp, garageDoorDown);
+
+        System.out.println(remoteControl);
+
+        remoteControl.onButtonWasPushed(0);
+        remoteControl.offButtonWasPushed(0);
+        remoteControl.onButtonWasPushed(1);
+        remoteControl.offButtonWasPushed(1);
+        remoteControl.onButtonWasPushed(2);
+        remoteControl.offButtonWasPushed(2);
+        remoteControl.onButtonWasPushed(3);
+        remoteControl.offButtonWasPushed(3);
+    }
+
+    @Test
+    @DisplayName("remote controller test - lambda")
+    void testRemoteControllerWithLambdaExpression() {
+        RemoteControl remoteControl = new RemoteControl();
+
+        Light livingRoomLight = new Light("Living Room");
+        Light kitchenLight = new Light("Kitchen");
+        GarageDoor garageDoor = new GarageDoor("Garage");
+        Stereo stereo = new Stereo("Living Room");
+
+        remoteControl.setCommand(0, livingRoomLight::on, livingRoomLight::off);
+        remoteControl.setCommand(1, kitchenLight::on, kitchenLight::off);
+        remoteControl.setCommand(2, stereo::on, stereo::off);
+        remoteControl.setCommand(3, garageDoor::lightOn, garageDoor::lightOff);
 
         System.out.println(remoteControl);
 
