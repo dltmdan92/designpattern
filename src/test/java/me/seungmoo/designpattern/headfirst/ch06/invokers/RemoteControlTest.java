@@ -1,11 +1,16 @@
 package me.seungmoo.designpattern.headfirst.ch06.invokers;
 
+import me.seungmoo.designpattern.headfirst.ch06.commands.ceilingfan.CeilingFanHighCommand;
+import me.seungmoo.designpattern.headfirst.ch06.commands.ceilingfan.CeilingFanLowCommand;
+import me.seungmoo.designpattern.headfirst.ch06.commands.ceilingfan.CeilingFanMediumCommand;
+import me.seungmoo.designpattern.headfirst.ch06.commands.ceilingfan.CeilingFanOffCommand;
 import me.seungmoo.designpattern.headfirst.ch06.commands.garage.GarageDoorDownCommand;
 import me.seungmoo.designpattern.headfirst.ch06.commands.garage.GarageDoorUpCommand;
 import me.seungmoo.designpattern.headfirst.ch06.commands.light.LightOffCommand;
 import me.seungmoo.designpattern.headfirst.ch06.commands.light.LightOnCommand;
 import me.seungmoo.designpattern.headfirst.ch06.commands.stereo.StereoOffCommand;
 import me.seungmoo.designpattern.headfirst.ch06.commands.stereo.StereoOnWithCDCommand;
+import me.seungmoo.designpattern.headfirst.ch06.receivers.CeilingFan;
 import me.seungmoo.designpattern.headfirst.ch06.receivers.GarageDoor;
 import me.seungmoo.designpattern.headfirst.ch06.receivers.Light;
 import me.seungmoo.designpattern.headfirst.ch06.receivers.Stereo;
@@ -58,6 +63,32 @@ class RemoteControlTest {
         remoteControl.onButtonWasPushed(3);
         remoteControl.undoButtonWasPushed();
         remoteControl.offButtonWasPushed(3);
+    }
+
+    @Test
+    @DisplayName("선풍기 테스트")
+    void ceilingFanTest() {
+        RemoteControl remoteControl = new RemoteControl();
+
+        CeilingFan ceilingFan = new CeilingFan("Living Room");
+
+        CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
+        CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
+        CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan);
+        CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+
+        remoteControl.setCommand(0, ceilingFanHigh, ceilingFanOff);
+        remoteControl.setCommand(1, ceilingFanMedium, ceilingFanOff);
+
+        remoteControl.onButtonWasPushed(0);
+        remoteControl.offButtonWasPushed(0);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPushed();
+
+        remoteControl.onButtonWasPushed(1);
+        remoteControl.undoButtonWasPushed();
+        remoteControl.offButtonWasPushed(1);
+        System.out.println(remoteControl);
     }
 
 }
