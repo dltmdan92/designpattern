@@ -6,6 +6,7 @@ import me.seungmoo.designpattern.headfirst.ch06.commands.NoCommand;
 public class RemoteControl {
     private final Command[] onCommands = new Command[7];
     private final Command[] offCommands = new Command[7];
+    private Command undoCommand;
 
     public RemoteControl() {
         Command noCommand = new NoCommand();
@@ -13,6 +14,7 @@ public class RemoteControl {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
+        undoCommand = noCommand;
     }
 
     public void setCommand(int slot, Command onCommand, Command offCommand) {
@@ -22,10 +24,16 @@ public class RemoteControl {
 
     public void onButtonWasPushed(int slot) {
         onCommands[slot].execute();
+        undoCommand = onCommands[slot];
     }
 
     public void offButtonWasPushed(int slot) {
         offCommands[slot].execute();
+        undoCommand = onCommands[slot];
+    }
+
+    public void undoButtonWasPushed() {
+        undoCommand.undo();
     }
 
     @Override
