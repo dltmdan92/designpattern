@@ -5,18 +5,16 @@ import me.seungmoo.designpattern.headfirst.ch07.fowls.Duck;
 import me.seungmoo.designpattern.headfirst.ch07.fowls.Turkey;
 
 @RequiredArgsConstructor
-public class TurkeyAdapter implements Duck {
-    private final Turkey turkey;
+public class DuckAdapter implements Turkey {
+    private final Duck duck;
 
     @Override
-    public void quack() {
-        turkey.gobble();
+    public void gobble() {
+        duck.quack();
     }
 
     @Override
     public void fly() {
-        for (int i = 0; i < 5; i++) {
-            turkey.fly();
-        }
+        duck.fly();
     }
 }
