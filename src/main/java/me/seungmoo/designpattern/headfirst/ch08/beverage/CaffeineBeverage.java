@@ -1,4 +1,4 @@
-package me.seungmoo.designpattern.headfirst.ch08;
+package me.seungmoo.designpattern.headfirst.ch08.beverage;
 
 public abstract class CaffeineBeverage {
 

@@ -1,4 +1,4 @@
-package me.seungmoo.designpattern.headfirst.ch08;
+package me.seungmoo.designpattern.headfirst.ch08.beverage;
 
 public class Tea extends CaffeineBeverage {
     @Override
