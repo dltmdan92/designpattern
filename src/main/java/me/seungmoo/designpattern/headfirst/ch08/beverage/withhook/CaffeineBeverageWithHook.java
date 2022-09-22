@@ -1,4 +1,4 @@
-package me.seungmoo.designpattern.headfirst.ch08.beverage;
+package me.seungmoo.designpattern.headfirst.ch08.beverage.withhook;
 
 public abstract class CaffeineBeverageWithHook {
 
