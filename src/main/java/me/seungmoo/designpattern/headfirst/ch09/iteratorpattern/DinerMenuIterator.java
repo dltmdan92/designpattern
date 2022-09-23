@@ -1,7 +1,7 @@
 package me.seungmoo.designpattern.headfirst.ch09.iteratorpattern;
 
 import lombok.RequiredArgsConstructor;
-import me.seungmoo.designpattern.headfirst.ch09.restaurant.MenuItem;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.MenuItem;
 
 import java.util.Iterator;
 

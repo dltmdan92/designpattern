@@ -1,4 +1,4 @@
-package me.seungmoo.designpattern.headfirst.ch09.restaurant;
+package me.seungmoo.designpattern.headfirst.ch09.restaurant.menus;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

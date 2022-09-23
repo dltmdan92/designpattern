@@ -1,9 +1,9 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.DinerMenu;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.PancakeHouseMenu;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeWithIteratorTest {
 

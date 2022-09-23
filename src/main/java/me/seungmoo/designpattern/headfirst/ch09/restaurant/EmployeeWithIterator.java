@@ -1,13 +1,15 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
 import lombok.RequiredArgsConstructor;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.Menu;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.MenuItem;
 
 import java.util.Iterator;
 
 @RequiredArgsConstructor
 public class EmployeeWithIterator {
-    private final PancakeHouseMenu pancakeHouseMenu;
-    private final DinerMenu dinerMenu;
+    private final Menu pancakeHouseMenu;
+    private final Menu dinerMenu;
 
     public void printMenu() {
         Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
