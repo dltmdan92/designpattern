@@ -1,8 +1,8 @@
-package me.seungmoo.designpattern.headfirst.ch09;
+package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
 import java.util.List;
 
-public class Employee {
+public class EmployeeWithoutIterator {
 
     /**
      * 메뉴에 있는 모든 항목을 출력

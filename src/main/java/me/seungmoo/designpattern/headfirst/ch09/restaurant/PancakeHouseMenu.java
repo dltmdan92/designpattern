@@ -1,10 +1,13 @@
-package me.seungmoo.designpattern.headfirst.ch09;
+package me.seungmoo.designpattern.headfirst.ch09.restaurant;
+
+import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.Iterator;
+import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.PancakeMenuIterator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PancakeHouseMenu {
-    private List<MenuItem> menuItems;
+    private final List<MenuItem> menuItems;
 
     public PancakeHouseMenu() {
         menuItems = new ArrayList<>();
@@ -33,5 +36,9 @@ public class PancakeHouseMenu {
 
     public List<MenuItem> getMenuItems() {
         return menuItems;
+    }
+
+    public Iterator createIterator() {
+        return new PancakeMenuIterator(menuItems);
     }
 }

@@ -1,9 +1,14 @@
-package me.seungmoo.designpattern.headfirst.ch09;
+package me.seungmoo.designpattern.headfirst.ch09.restaurant;
+
+import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.DinerMenuIterator;
+import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.Iterator;
+
+import java.lang.annotation.Documented;
 
 public class DinerMenu {
     private static final int MAX_ITEMS = 6;
     private int numberOfItems = 0;
-    private MenuItem[] menuItems;
+    private final MenuItem[] menuItems;
 
     public DinerMenu() {
         menuItems = new MenuItem[MAX_ITEMS];
@@ -36,7 +41,16 @@ public class DinerMenu {
         }
     }
 
+    /**
+     * @deprecated use createIterator method
+     * @return MenuItem[]
+     */
+    @Deprecated(forRemoval = true)
     public MenuItem[] getMenuItems() {
         return menuItems;
+    }
+
+    public Iterator createIterator() {
+        return new DinerMenuIterator(menuItems);
     }
 }
