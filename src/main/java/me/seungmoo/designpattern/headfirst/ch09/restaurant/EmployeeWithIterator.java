@@ -1,7 +1,8 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
 import lombok.RequiredArgsConstructor;
-import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.Iterator;
+
+import java.util.Iterator;
 
 @RequiredArgsConstructor
 public class EmployeeWithIterator {
@@ -9,8 +10,8 @@ public class EmployeeWithIterator {
     private final DinerMenu dinerMenu;
 
     public void printMenu() {
-        Iterator pancakeIterator = pancakeHouseMenu.createIterator();
-        Iterator dinerIterator = dinerMenu.createIterator();
+        Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
+        Iterator<MenuItem> dinerIterator = dinerMenu.createIterator();
 
         System.out.println("메뉴\n----\n아침 메뉴");
         printMenu(pancakeIterator);
@@ -26,7 +27,7 @@ public class EmployeeWithIterator {
      *
      * @param iterator
      */
-    private void printMenu(Iterator iterator) {
+    private void printMenu(Iterator<MenuItem> iterator) {
         while (iterator.hasNext()) {
             MenuItem menuItem = iterator.next();
             System.out.print(menuItem.getName() + ", ");

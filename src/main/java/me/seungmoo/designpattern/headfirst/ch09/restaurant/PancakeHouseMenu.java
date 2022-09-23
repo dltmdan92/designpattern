@@ -1,9 +1,7 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
-import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.Iterator;
-import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.PancakeMenuIterator;
-
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class PancakeHouseMenu {
@@ -38,7 +36,7 @@ public class PancakeHouseMenu {
         return menuItems;
     }
 
-    public Iterator createIterator() {
-        return new PancakeMenuIterator(menuItems);
+    public Iterator<MenuItem> createIterator() {
+        return menuItems.iterator();
     }
 }
