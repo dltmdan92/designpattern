@@ -5,20 +5,18 @@ import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.Menu;
 import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.MenuItem;
 
 import java.util.Iterator;
+import java.util.List;
 
 @RequiredArgsConstructor
 public class EmployeeWithIterator {
-    private final Menu pancakeHouseMenu;
-    private final Menu dinerMenu;
+    private final List<Menu> menus;
 
     public void printMenu() {
-        Iterator<MenuItem> pancakeIterator = pancakeHouseMenu.createIterator();
-        Iterator<MenuItem> dinerIterator = dinerMenu.createIterator();
-
-        System.out.println("메뉴\n----\n아침 메뉴");
-        printMenu(pancakeIterator);
-        System.out.println("\n점심 메뉴");
-        printMenu(dinerIterator);
+        Iterator<Menu> iterator = menus.iterator();
+        while (iterator.hasNext()) {
+            Menu menu = iterator.next();
+            printMenu(menu.createIterator());
+        }
     }
 
     /**

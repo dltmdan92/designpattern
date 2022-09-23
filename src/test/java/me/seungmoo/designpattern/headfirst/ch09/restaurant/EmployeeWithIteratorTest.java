@@ -1,5 +1,6 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.CafeMenu;
 import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.DinerMenu;
 import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.PancakeHouseMenu;
 import org.junit.jupiter.api.DisplayName;
@@ -12,8 +13,9 @@ class EmployeeWithIteratorTest {
     void testIteratorPattern() {
         PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
         DinerMenu dinerMenu = new DinerMenu();
+        CafeMenu cafeMenu = new CafeMenu();
 
-        EmployeeWithIterator employeeWithIterator = new EmployeeWithIterator(pancakeHouseMenu, dinerMenu);
+        EmployeeWithIterator employeeWithIterator = new EmployeeWithIterator(pancakeHouseMenu, dinerMenu, cafeMenu);
 
         employeeWithIterator.printMenu();
     }
