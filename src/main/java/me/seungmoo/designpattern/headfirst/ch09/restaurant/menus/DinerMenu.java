@@ -1,10 +1,8 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant.menus;
 
-import me.seungmoo.designpattern.headfirst.ch09.iteratorpattern.DinerMenuIterator;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.compositepattern.MenuItem;
 
-import java.util.Iterator;
-
-public class DinerMenu implements Menu {
+public class DinerMenu {
     private static final int MAX_ITEMS = 6;
     private int numberOfItems = 0;
     private final MenuItem[] menuItems;
@@ -49,8 +47,4 @@ public class DinerMenu implements Menu {
         return menuItems;
     }
 
-    @Override
-    public Iterator<MenuItem> createIterator() {
-        return new DinerMenuIterator(menuItems);
-    }
 }

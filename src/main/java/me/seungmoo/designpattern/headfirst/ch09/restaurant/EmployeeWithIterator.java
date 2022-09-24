@@ -1,22 +1,17 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
 import lombok.RequiredArgsConstructor;
-import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.Menu;
-import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.MenuItem;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.compositepattern.MenuComponent;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.compositepattern.MenuItem;
 
 import java.util.Iterator;
-import java.util.List;
 
 @RequiredArgsConstructor
 public class EmployeeWithIterator {
-    private final List<Menu> menus;
+    private final MenuComponent menus;
 
     public void printMenu() {
-        Iterator<Menu> iterator = menus.iterator();
-        while (iterator.hasNext()) {
-            Menu menu = iterator.next();
-            printMenu(menu.createIterator());
-        }
+        menus.print();
     }
 
     /**

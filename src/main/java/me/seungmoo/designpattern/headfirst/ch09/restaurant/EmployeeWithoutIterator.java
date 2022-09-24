@@ -1,7 +1,7 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant;
 
 import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.DinerMenu;
-import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.MenuItem;
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.compositepattern.MenuItem;
 import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.PancakeHouseMenu;
 
 import java.util.List;

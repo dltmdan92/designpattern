@@ -1,10 +1,12 @@
 package me.seungmoo.designpattern.headfirst.ch09.restaurant.menus;
 
+import me.seungmoo.designpattern.headfirst.ch09.restaurant.menus.compositepattern.MenuItem;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class PancakeHouseMenu implements Menu {
+public class PancakeHouseMenu {
     private final List<MenuItem> menuItems;
 
     public PancakeHouseMenu() {
@@ -36,7 +38,6 @@ public class PancakeHouseMenu implements Menu {
         return menuItems;
     }
 
-    @Override
     public Iterator<MenuItem> createIterator() {
         return menuItems.iterator();
     }
