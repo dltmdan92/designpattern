@@ -41,4 +41,9 @@ public class WinnerState implements State {
             }
         }
     }
+
+    @Override
+    public void refill() {
+        System.out.println("아직 알맹이가 있습니다.");
+    }
 }

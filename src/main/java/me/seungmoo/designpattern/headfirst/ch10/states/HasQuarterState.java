@@ -39,4 +39,9 @@ public class HasQuarterState implements State {
     public void dispense() {
         System.out.println("알맹이를 내보낼 수 없습니다.");
     }
+
+    @Override
+    public void refill() {
+        System.out.println("아직 알맹이가 있습니다.");
+    }
 }
