@@ -3,12 +3,15 @@ package me.seungmoo.designpattern.headfirst.ch10.states;
 import lombok.RequiredArgsConstructor;
 import me.seungmoo.designpattern.headfirst.ch10.GumballMachine;
 
+import java.util.Random;
+
 /**
  * 동전 있음
  */
 @RequiredArgsConstructor
 public class HasQuarterState implements State {
     private final GumballMachine gumballMachine;
+    private final Random randomWinner = new Random(System.currentTimeMillis());
 
     @Override
     public void insertQuarter() {
@@ -24,7 +27,12 @@ public class HasQuarterState implements State {
     @Override
     public void turnCrank() {
         System.out.println("손잡이를 돌리셨습니다.");
-        gumballMachine.setState(gumballMachine.getSoldState());
+        int winner = randomWinner.nextInt(10);
+        if ((winner == 0) && (gumballMachine.getCount() > 1)) {
+            gumballMachine.setState(gumballMachine.getWinnerState());
+        } else {
+            gumballMachine.setState(gumballMachine.getSoldState());
+        }
     }
 
     @Override
