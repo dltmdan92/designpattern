@@ -1,75 +1,70 @@
 package me.seungmoo.designpattern.headfirst.ch10;
 
+import lombok.Getter;
 import lombok.ToString;
-import me.seungmoo.designpattern.headfirst.ch10.states.StateCode;
+import me.seungmoo.designpattern.headfirst.ch10.states.*;
 
+/**
+ * 상태패턴으로 구성된 뽑기 기계
+ * 각각의 상태들은 composition으로 구성된다.
+ *
+ * 장점
+ * 1. 각 상태의 행동을 별개의 클래스로 국지화했다.
+ * 2. 관리하기 힘든 골칫덩어리 if 선언문들을 없앴다.
+ * 3. 각 상태를 변경에는 닫혀 있게 하고, GumballMachine 클래스는 새로운 상태 클래스를 추가하는 확장에는 열려있다.(OCP)
+ * 4. 코드가 더 편해졌다.
+ *
+ * 상태 패턴(State Pattern)을 통해 객체의 내부 상태가 바뀜에 따라서 객체의 행동을 바꿀 수 있다.
+ */
+@Getter
 @ToString(onlyExplicitlyIncluded = true)
 public class GumballMachine {
 
-    @ToString.Include
-    private StateCode state = StateCode.SOLD_OUT;
-    @ToString.Include
+
+    private State soldOutState;
+    private State noQuarterState;
+    private State hasQuarterState;
+    private State soldState;
+
+    private State state;
     private int count = 0;
 
-    public GumballMachine(int count) {
-        this.count = count;
-        if (count > 0) {
-            state = StateCode.NO_QUARTER;
+    public GumballMachine(int numberGumballs) {
+        soldOutState = new SoldOutState(this);
+        noQuarterState = new NoQuarterState(this);
+        hasQuarterState = new HasQuarterState(this);
+        soldState = new SoldState(this);
+
+        this.count = numberGumballs;
+        if (numberGumballs > 0) {
+            state = noQuarterState;
+        } else {
+            state = soldOutState;
         }
     }
 
     public void insertQuarter() {
-        switch (state) {
-            case HAS_QUARTER -> System.out.println("동전은 한 개만 넣어주세요.");
-            case NO_QUARTER -> {
-                state = StateCode.HAS_QUARTER;
-                System.out.println("동전이 투입되었습니다.");
-            }
-            case SOLD_OUT -> System.out.println("매진되었습니다. 다음 기회에 이용해주세요.");
-            case SOLD -> System.out.println("알맹이를 내보내고 있습니다.");
-        }
+        state.insertQuarter();
     }
 
     public void ejectQuarter() {
-        switch (state) {
-            case HAS_QUARTER -> {
-                System.out.println("동전이 반환됩니다.");
-                state = StateCode.NO_QUARTER;
-            }
-            case NO_QUARTER -> System.out.println("동전을 넣어주세요.");
-            case SOLD -> System.out.println("이미 알맹이를 뽑으셨습니다.");
-            case SOLD_OUT -> System.out.println("동전을 넣지 않으셨습니다. 동전이 반환되지 않습니다.");
-        }
+        state.ejectQuarter();
     }
 
     public void turnCrank() {
-        switch (state) {
-            case SOLD -> System.out.println("손잡이는 한 번만 돌려 주세요.");
-            case NO_QUARTER -> System.out.println("동전을 넣어 주세요.");
-            case SOLD_OUT -> System.out.println("매진되었습니다.");
-            case HAS_QUARTER -> {
-                System.out.println("손잡이를 돌리셨습니다.");
-                state = StateCode.SOLD;
-                dispense();
-            }
+        state.turnCrank();
+        state.dispense();
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public void releaseBall() {
+        System.out.println("알맹이를 내보내고 있습니다.");
+        if (count > 0) {
+            count--;
         }
     }
 
-    private void dispense() {
-        switch (state) {
-            case SOLD -> {
-                System.out.println("알맹이를 내보내고 있습니다.");
-                count--;
-                if (count == 0) {
-                    System.out.println("더 이상 알맹이가 없습니다.");
-                    state = StateCode.SOLD_OUT;
-                } else {
-                    state = StateCode.NO_QUARTER;
-                }
-            }
-            case NO_QUARTER -> System.out.println("동전을 넣어 주세요.");
-            case SOLD_OUT -> System.out.println("매진입니다.");
-            case HAS_QUARTER -> System.out.println("알맹이를 내보낼 수 없습니다.");
-        }
-    }
 }

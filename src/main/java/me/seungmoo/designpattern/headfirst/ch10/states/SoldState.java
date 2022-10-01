@@ -1,26 +1,38 @@
 package me.seungmoo.designpattern.headfirst.ch10.states;
 
+import lombok.RequiredArgsConstructor;
+import me.seungmoo.designpattern.headfirst.ch10.GumballMachine;
+
 /**
  * 뽑음
  */
+@RequiredArgsConstructor
 public class SoldState implements State {
+    private final GumballMachine gumballMachine;
+
     @Override
     public void insertQuarter() {
-        // TODO 알맹이를 내보내고 있으니 기다려라 출력
+        System.out.println("알맹이를 내보내고 있습니다.");
     }
 
     @Override
     public void ejectQuarter() {
-
+        System.out.println("이미 알맹이를 뽑으셨습니다.");
     }
 
     @Override
     public void turnCrank() {
-
+        System.out.println("손잡이는 한 번만 돌려 주세요.");
     }
 
     @Override
     public void dispense() {
-        // TODO 알맹이를 하나 내보냄. 이때 알맹이 개수를 확인하고 그 값이 0보다 크면 NO_QUARTER, 0이면 SOLD_OUT으로 전환
+        gumballMachine.releaseBall();
+        if (gumballMachine.getCount() > 0) {
+            gumballMachine.setState(gumballMachine.getNoQuarterState());
+        } else {
+            System.out.println("Oops, out of gumballs!");
+            gumballMachine.setState(gumballMachine.getSoldOutState());
+        }
     }
 }
