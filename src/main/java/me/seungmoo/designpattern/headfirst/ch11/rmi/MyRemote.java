@@ -1,4 +1,4 @@
-package me.seungmoo.designpattern.headfirst.ch11;
+package me.seungmoo.designpattern.headfirst.ch11.rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
