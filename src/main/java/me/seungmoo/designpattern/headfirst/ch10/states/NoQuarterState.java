@@ -8,7 +8,9 @@ import me.seungmoo.designpattern.headfirst.ch10.GumballMachine;
  */
 @RequiredArgsConstructor
 public class NoQuarterState implements State {
-    private final GumballMachine gumballMachine;
+
+    private static final long serialVersionUID = 2L;
+    private final transient GumballMachine gumballMachine;
 
     @Override
     public void insertQuarter() {

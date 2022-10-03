@@ -3,6 +3,10 @@ package me.seungmoo.designpattern.headfirst.ch10;
 import lombok.Getter;
 import lombok.ToString;
 import me.seungmoo.designpattern.headfirst.ch10.states.*;
+import me.seungmoo.designpattern.headfirst.ch11.gumball.GumballMachineRemote;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 /**
  * 상태패턴으로 구성된 뽑기 기계
@@ -18,7 +22,8 @@ import me.seungmoo.designpattern.headfirst.ch10.states.*;
  */
 @Getter
 @ToString(onlyExplicitlyIncluded = true)
-public class GumballMachine {
+public class GumballMachine extends UnicastRemoteObject implements GumballMachineRemote {
+    private static final long serialVersionUID = 2L;
     private final String location;
 
     private State soldOutState;
@@ -30,7 +35,7 @@ public class GumballMachine {
     private State state;
     private int count = 0;
 
-    public GumballMachine(String location, int numberGumballs) {
+    public GumballMachine(String location, int numberGumballs) throws RemoteException {
         this.location = location;
         soldOutState = new SoldOutState(this);
         noQuarterState = new NoQuarterState(this);
