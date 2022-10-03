@@ -19,7 +19,7 @@ import me.seungmoo.designpattern.headfirst.ch10.states.*;
 @Getter
 @ToString(onlyExplicitlyIncluded = true)
 public class GumballMachine {
-
+    private final String location;
 
     private State soldOutState;
     private State noQuarterState;
@@ -30,7 +30,8 @@ public class GumballMachine {
     private State state;
     private int count = 0;
 
-    public GumballMachine(int numberGumballs) {
+    public GumballMachine(String location, int numberGumballs) {
+        this.location = location;
         soldOutState = new SoldOutState(this);
         noQuarterState = new NoQuarterState(this);
         hasQuarterState = new HasQuarterState(this);

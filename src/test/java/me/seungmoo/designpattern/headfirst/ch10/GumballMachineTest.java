@@ -8,7 +8,7 @@ class GumballMachineTest {
 
     @Test
     void test() {
-        GumballMachine gumballMachine = new GumballMachine(5);
+        GumballMachine gumballMachine = new GumballMachine("Seoul", 5);
 
         System.out.println(gumballMachine);
 
