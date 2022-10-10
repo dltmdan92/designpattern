@@ -1,6 +1,6 @@
-package me.seungmoo.designpattern.headfirst.ch12.observers;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers;
 
-import me.seungmoo.designpattern.headfirst.ch12.fowls.ducks.Quackable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.Quackable;
 
 public class Quackologist implements Observer{
     @Override

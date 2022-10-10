@@ -1,10 +1,10 @@
-package me.seungmoo.designpattern.headfirst.ch12.adapters;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.adapters;
 
 import lombok.RequiredArgsConstructor;
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observer;
-import me.seungmoo.designpattern.headfirst.ch12.fowls.ducks.Quackable;
-import me.seungmoo.designpattern.headfirst.ch12.fowls.gooses.Goose;
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observer;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.Quackable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.gooses.Goose;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observable;
 
 /**
  * 어댑터 패턴

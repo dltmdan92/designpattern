@@ -1,6 +1,7 @@
-package me.seungmoo.designpattern.headfirst.ch12.factories;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.factories;
 
-import me.seungmoo.designpattern.headfirst.ch12.decorators.QuackCountDecorator;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.decorators.QuackCountDecorator;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.*;
 import me.seungmoo.designpattern.headfirst.ch12.fowls.ducks.*;
 
 public class CountingDuckFactory extends AbstractDuckFactory{

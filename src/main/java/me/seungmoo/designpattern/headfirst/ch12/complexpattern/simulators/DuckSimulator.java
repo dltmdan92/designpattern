@@ -1,12 +1,14 @@
-package me.seungmoo.designpattern.headfirst.ch12.simulators;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.simulators;
 
-import me.seungmoo.designpattern.headfirst.ch12.adapters.GooseAdapter;
-import me.seungmoo.designpattern.headfirst.ch12.decorators.QuackCountDecorator;
-import me.seungmoo.designpattern.headfirst.ch12.factories.AbstractDuckFactory;
-import me.seungmoo.designpattern.headfirst.ch12.factories.CountingDuckFactory;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.adapters.GooseAdapter;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.decorators.QuackCountDecorator;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.factories.AbstractDuckFactory;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.factories.CountingDuckFactory;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.Flock;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.Quackable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.gooses.Goose;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Quackologist;
 import me.seungmoo.designpattern.headfirst.ch12.fowls.ducks.*;
-import me.seungmoo.designpattern.headfirst.ch12.fowls.gooses.Goose;
-import me.seungmoo.designpattern.headfirst.ch12.observers.Quackologist;
 
 public class DuckSimulator {
     public static void main(String[] args) {

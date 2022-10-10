@@ -1,14 +1,14 @@
-package me.seungmoo.designpattern.headfirst.ch12.fowls.ducks;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks;
 
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observable;
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observer;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observer;
 
-public class DuckCall implements Quackable {
+public class RedheadDuck implements Quackable {
     private Observable observable = new Observable(this);
 
     @Override
     public void quack() {
-        System.out.println("꽉꽉");
+        System.out.println("꽥꽥");
         notifyObservers();
     }
 

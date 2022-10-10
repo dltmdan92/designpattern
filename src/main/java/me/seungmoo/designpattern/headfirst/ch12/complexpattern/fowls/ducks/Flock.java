@@ -1,7 +1,7 @@
-package me.seungmoo.designpattern.headfirst.ch12.fowls.ducks;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks;
 
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observable;
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observer;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observer;
 
 import java.util.ArrayList;
 import java.util.List;

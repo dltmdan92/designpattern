@@ -1,4 +1,4 @@
-package me.seungmoo.designpattern.headfirst.ch12.fowls.gooses;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.gooses;
 
 public class Goose {
     public void honk() {

@@ -1,14 +1,14 @@
-package me.seungmoo.designpattern.headfirst.ch12.fowls.ducks;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks;
 
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observable;
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observer;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observer;
 
-public class RubberDuck implements Quackable {
+public class DuckCall implements Quackable {
     private Observable observable = new Observable(this);
 
     @Override
     public void quack() {
-        System.out.println("삑삑");
+        System.out.println("꽉꽉");
         notifyObservers();
     }
 

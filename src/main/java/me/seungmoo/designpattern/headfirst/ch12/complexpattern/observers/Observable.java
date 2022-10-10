@@ -1,7 +1,7 @@
-package me.seungmoo.designpattern.headfirst.ch12.observers;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers;
 
 import lombok.RequiredArgsConstructor;
-import me.seungmoo.designpattern.headfirst.ch12.fowls.ducks.Quackable;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.Quackable;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,5 +1,6 @@
-package me.seungmoo.designpattern.headfirst.ch12.factories;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.factories;
 
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.*;
 import me.seungmoo.designpattern.headfirst.ch12.fowls.ducks.*;
 
 public class DuckFactory extends AbstractDuckFactory {

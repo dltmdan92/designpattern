@@ -1,8 +1,8 @@
-package me.seungmoo.designpattern.headfirst.ch12.decorators;
+package me.seungmoo.designpattern.headfirst.ch12.complexpattern.decorators;
 
 import lombok.RequiredArgsConstructor;
-import me.seungmoo.designpattern.headfirst.ch12.fowls.ducks.Quackable;
-import me.seungmoo.designpattern.headfirst.ch12.observers.Observer;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.observers.Observer;
+import me.seungmoo.designpattern.headfirst.ch12.complexpattern.fowls.ducks.Quackable;
 
 @RequiredArgsConstructor
 public class QuackCountDecorator implements Quackable {
